@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="anchor-pane" prefHeight="600.0" prefWidth="1280.0" styleClass="anchor-pane" stylesheets="@../resources/ccs/EstiloMenuPrincipal.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.in5bv.juanrivas.tolchavalan.controllers.MenuPrincipalController">
+   <children>
+      <MenuBar id="MenuBar" layoutX="26.0" layoutY="27.0" prefHeight="34.0" prefWidth="140.0" styleClass="MenuBar" stylesheets="@../resources/ccs/EstiloMenuPrincipal.css">
+        <menus>
+          <Menu mnemonicParsing="false" styleClass="MenuBar" text="Modulo">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#clicAlumnos" text="Alumnos" />
+                  <MenuItem mnemonicParsing="false" onAction="#clicAsignaciones" text="Asignaciones alumnos" />
+                  <MenuItem mnemonicParsing="false" onAction="#clicCursos" text="Cursos" />
+                  <MenuItem mnemonicParsing="false" onAction="#clicInstructores" text="Instructores" />
+                  <MenuItem mnemonicParsing="false" onAction="#clicSalones" text="Salones" />
+                  <MenuItem mnemonicParsing="false" onAction="#clicCarreras" text="Carreras Tecnicas" />
+                  <MenuItem mnemonicParsing="false" onAction="#clicHorario" text="Horarios" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="¿?">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <ImageView fitHeight="382.0" fitWidth="584.0" layoutX="449.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/images/logo-control-academico1.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

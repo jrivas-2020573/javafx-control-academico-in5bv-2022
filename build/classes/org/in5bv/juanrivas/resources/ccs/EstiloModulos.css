@@ -1,0 +1,46 @@
+/* 
+    Created on : 7 abr 2022, 15:48:33
+    Author     : juan jose rivas alvarez
+*/
+
+#panel-navegacion {
+    -fx-background-color:  #cccccc;
+}
+
+#pane-entidad {
+    -fx-background-color:  orange;
+    -fx-background-radius:  0 0  30 30;
+}
+
+#vbox-crud {
+    -fx-background-color: #cccccc;
+    
+}
+
+.botones-crud {
+    -fx-background-color: #cccccc;
+    
+}
+
+.botones-crud:hover {
+    -fx-background-color: orange;
+    -fx-background-radius: 0 30 0 30;
+}
+
+.adornos-bg {
+    -fx-background-color: #cccccc;
+    -fx-background-radius: 0 0 60 60;
+}
+
+#boton-regresar {
+    -fx-background-color: #cccccc;
+    -fx-background-radius: 50 50 50 50;   
+}
+
+
+#boton-regresar:hover {
+    -fx-background-color: orange;
+}
+
+
+

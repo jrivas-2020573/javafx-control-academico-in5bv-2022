@@ -1,0 +1,21 @@
+/* 
+    
+    Created on : 5 abr 2022, 17:27:56
+    Author     : juan jose rivas alvarez
+*/
+
+/*#MenuBar {
+    -fx-background-color: orange;  
+    -fx-background-radius: 10 10 10 10;
+    -fx-font-size : 11pt;
+}
+*/
+.MenuBar {
+    -fx-background-color: orange;  
+    -fx-background-radius: 10 10 10 10;
+    -fx-font-size : 11pt;
+}
+
+#anchor-pane {
+    -fx-background-color:linear-gradient(to bottom right, #9999ff, #6699ff);    
+}
