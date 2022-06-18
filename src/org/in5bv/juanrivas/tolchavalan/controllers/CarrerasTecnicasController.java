@@ -332,7 +332,7 @@ public class CarrerasTecnicasController implements Initializable {
             pstmt.setString(1, carrerastecnicas.getCodigoTecnico());
             pstmt.setString(2, carrerastecnicas.getCarrera());  
             pstmt.setString(3, carrerastecnicas.getGrado());                     
-            //pstmt.setString(4, carrerastecnicas.getSeccion());
+            pstmt.setString(4, String.valueOf(carrerastecnicas.getSeccion()));
             pstmt.setString(5, carrerastecnicas.getJornada());
             
             System.out.println(pstmt.toString());

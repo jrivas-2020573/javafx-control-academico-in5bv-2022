@@ -19,12 +19,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.in5bv.juanrivas.db.Conexion;
+import org.in5bv.juanrivas.reports.GenerarReporte;
 
 /**
  *
@@ -564,16 +567,10 @@ public class AlumnosController implements Initializable {
 
     @FXML
     private void clicListar() {
-        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-        alerta.setTitle("AVISO");
-        //alerta.setHeaderText("Control Académico KINAL");
-        alerta.setHeaderText(null);
-        alerta.setContentText("Esta funcion solo esta disponible en la version Premium");
-
-        Stage stageAlert = (Stage) alerta.getDialogPane().getScene().getWindow();
-        stageAlert.getIcons().add(new Image(PAQUETE_IMAGES + "logo-control-academico1.png"));
-
-        alerta.show();
+        Map<String, Object> parametros = new HashMap<>();
+        parametros.put("nombre", "JuanJose");
+        
+        GenerarReporte.getInstance().mostrarReporte("ReporteAlumnos.jasper", parametros, "Reporte de Alumnos");
     }
 
     @FXML

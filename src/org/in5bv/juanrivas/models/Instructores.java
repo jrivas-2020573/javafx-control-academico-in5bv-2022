@@ -2,7 +2,7 @@
 package org.in5bv.juanrivas.models;
 
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 
@@ -26,7 +26,7 @@ public class Instructores {
     private String direccion;
     private String email;
     private String telefono;
-    private ObjectProperty<LocalDateTime> fechaNacimiento;
+    private ObjectProperty<LocalDate> fechaNacimiento;
     // arreglar lo de arriba, tiene que ser fechaNacimiento, es por la sintaxis, ver en los demas iguals
     
     
@@ -34,7 +34,7 @@ public class Instructores {
         this.fechaNacimiento = new SimpleObjectProperty<>();
     }
     
-    public Instructores(String nombre1, String nombre2, String nombre3, String apellido1, String apellido2, String direccion, String email, String telefono, ObjectProperty<LocalDateTime> fechaNacimiento) {
+    public Instructores(String nombre1, String nombre2, String nombre3, String apellido1, String apellido2, String direccion, String email, String telefono, ObjectProperty<LocalDate> fechaNacimiento) {
         this.nombre1 = nombre1;
         this.nombre2 = nombre2;
         this.nombre3 = nombre3;
@@ -48,7 +48,7 @@ public class Instructores {
     
     
     public Instructores(Integer id, String nombre1, String nombre2, String nombre3, String apellido1, 
-            String apellido2, String direccion, String email, String telefono, LocalDateTime fechaNacimineto){	 	
+            String apellido2, String direccion, String email, String telefono, LocalDate fechaNacimineto){	 	
 	this.id = id;
 	this.nombre1 = nombre1;
 	this.nombre2 = nombre2;
@@ -133,15 +133,15 @@ public class Instructores {
         this.telefono = telefono;
     }
     
-    public ObjectProperty<LocalDateTime> fechaNacimiento() {
+    public ObjectProperty<LocalDate> fechaNacimiento() {
         return fechaNacimiento;
     }
     
-    public LocalDateTime getFechaNacimiento() {
+    public LocalDate getFechaNacimiento() {
         return fechaNacimiento.get();
     }
 
-    public void setFechaNacimiento(LocalDateTime fechaNacimiento) {
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento.set(fechaNacimiento);
     }
     

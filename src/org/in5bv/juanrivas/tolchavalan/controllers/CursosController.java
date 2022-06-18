@@ -434,7 +434,7 @@ public class CursosController implements Initializable {
                 instructor.setDireccion(rs.getString(7));
                 instructor.setEmail(rs.getString(8));
                 instructor.setTelefono(rs.getString(9));
-                instructor.setFechaNacimiento(rs.getTimestamp("fecha_nacimiento").toLocalDateTime());
+                instructor.setFechaNacimiento(rs.getDate("fecha_nacimiento").toLocalDate());
                 System.out.println(instructor);
                 arrayListInstructores.add(instructor);
             }
@@ -1003,7 +1003,7 @@ public class CursosController implements Initializable {
                         rs.getString("direccion"), 
                         rs.getString("email"), 
                         rs.getString("telefono"), 
-                        rs.getTimestamp("fecha_nacimiento").toLocalDateTime()
+                        rs.getDate("fecha_nacimiento").toLocalDate()
                 );
 
                 System.out.println(instructor.toString());

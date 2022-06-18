@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteAlumnos" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3a519c57-6682-483a-b5d9-fc489990082d">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Control Academico IN5BV"/>
+	<queryString language="SQL">
+		<![CDATA[CALL sp_alumnos_read()]]>
+	</queryString>
+	<field name="carne" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="carne"/>
+		<property name="com.jaspersoft.studio.field.label" value="carne"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="alumnos"/>
+	</field>
+	<field name="nombre1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nombre1"/>
+		<property name="com.jaspersoft.studio.field.label" value="nombre1"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="alumnos"/>
+	</field>
+	<field name="nombre2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nombre2"/>
+		<property name="com.jaspersoft.studio.field.label" value="nombre2"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="alumnos"/>
+	</field>
+	<field name="nombre3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nombre3"/>
+		<property name="com.jaspersoft.studio.field.label" value="nombre3"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="alumnos"/>
+	</field>
+	<field name="apellido1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="apellido1"/>
+		<property name="com.jaspersoft.studio.field.label" value="apellido1"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="alumnos"/>
+	</field>
+	<field name="apellido2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="apellido2"/>
+		<property name="com.jaspersoft.studio.field.label" value="apellido2"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="alumnos"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="145" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="130" height="130" uuid="ffcc12e1-ab43-4bca-b8b8-7f3f9a30120e"/>
+				<imageExpression><![CDATA["C:/Users/juanj/Documents/NetBeansProjects/in5bv-control-academico-juan-rivas-tol-chavalan/src/org/in5bv/juanrivas/resources/images/logo-control-academico1.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="55" splitType="Stretch">
+			<staticText>
+				<reportElement x="15" y="20" width="63" height="30" uuid="748e6c10-c2cb-4a58-a072-81d0f1ba8772">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="abee87a5-416d-43ee-917c-3478943088e9"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[carne]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="90" y="20" width="60" height="30" uuid="c161132c-57e8-47be-88d8-ff64bd2e190c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6d379946-aaac-4c03-96bf-6086d7a558b8"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[nombre1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="160" y="20" width="70" height="30" uuid="507d1cd2-741f-4933-8871-9b4ee5e64b01">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f2315388-b657-44b2-956b-297847c70173"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[apellido1]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="49" splitType="Stretch">
+			<textField>
+				<reportElement x="15" y="10" width="64" height="30" uuid="32e2bea0-599b-4e2e-8ab6-c13059b1de0c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="abee87a5-416d-43ee-917c-3478943088e9"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{carne}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="10" width="60" height="30" uuid="917be425-d2f3-412c-b7c2-64b428c766c0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6d379946-aaac-4c03-96bf-6086d7a558b8"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nombre1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="10" width="70" height="30" uuid="6ad9c5c1-96ed-412a-9729-e4ee6aeeae88">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f2315388-b657-44b2-956b-297847c70173"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{apellido1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>
