@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="862.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.in5bv.juanrivas.tolchavalan.controllers.LoginController">
+   <children>
+      <BorderPane prefHeight="555.0" prefWidth="862.0">
+         <left>
+            <AnchorPane prefHeight="555.0" prefWidth="429.0" style="-fx-background-color: #0589FF;" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="258.0" fitWidth="283.0" layoutX="94.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/images/logo-control-academico1.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </left>
+         <right>
+            <AnchorPane prefHeight="555.0" prefWidth="432.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="39.0" layoutY="168.0" text="INGRESA TUS DATOS PARA ACCEDER">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtUserName" layoutX="142.0" layoutY="251.0" promptText="Nombre de Usuario" style="-fx-background-color: TRANSPARENT; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+                  <PasswordField fx:id="pswContrasena" layoutX="142.0" layoutY="323.0" promptText="Contraseña" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="141.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/images/grupo.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="btnAcceder" layoutX="171.0" layoutY="388.0" mnemonicParsing="false" onMouseClicked="#clicIngresar" prefHeight="37.0" prefWidth="91.0" style="-fx-background-color: #0598ff;" text="Acceder" textFill="#fffbfb" />
+               </children>
+            </AnchorPane>
+         </right>
+      </BorderPane>
+   </children>
+</AnchorPane>

@@ -172,6 +172,8 @@
                         <Image url="@../resources/images/btnRegresar.png" />
                      </image>
                   </ImageView>
+                  <Label layoutX="828.0" layoutY="584.0" prefHeight="21.0" prefWidth="54.0" text="Registros:" />
+                  <TextField fx:id="txtRegistros" editable="false" layoutX="885.0" layoutY="582.0" prefHeight="25.0" prefWidth="87.0" />
                </children></AnchorPane>
          </center>
       </BorderPane>

@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteAlumnos" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3a519c57-6682-483a-b5d9-fc489990082d">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Control Academico IN5BV"/>
+	<parameter name="LOGO_HEADER" class="java.lang.String"/>
+	<parameter name="LOGO_FOOTER" class="java.lang.String"/>
+	<parameter name="SALUDO" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[CALL sp_horario_report()]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="horarios"/>
+	</field>
+	<field name="horario_inicio" class="java.sql.Time">
+		<property name="com.jaspersoft.studio.field.name" value="horario_inicio"/>
+		<property name="com.jaspersoft.studio.field.label" value="horario_inicio"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="horarios"/>
+	</field>
+	<field name="horario_final" class="java.sql.Time">
+		<property name="com.jaspersoft.studio.field.name" value="horario_final"/>
+		<property name="com.jaspersoft.studio.field.label" value="horario_final"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="horarios"/>
+	</field>
+	<field name="lunes" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="lunes"/>
+		<property name="com.jaspersoft.studio.field.label" value="lunes"/>
+	</field>
+	<field name="martes" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="martes"/>
+		<property name="com.jaspersoft.studio.field.label" value="martes"/>
+	</field>
+	<field name="miercoles" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="miercoles"/>
+		<property name="com.jaspersoft.studio.field.label" value="miercoles"/>
+	</field>
+	<field name="jueves" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="jueves"/>
+		<property name="com.jaspersoft.studio.field.label" value="jueves"/>
+	</field>
+	<field name="viernes" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="viernes"/>
+		<property name="com.jaspersoft.studio.field.label" value="viernes"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="140" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="150" height="140" uuid="ffcc12e1-ab43-4bca-b8b8-7f3f9a30120e"/>
+				<imageExpression><![CDATA[$P{LOGO_HEADER}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="160" y="0" width="270" height="30" uuid="67c2c38e-189b-4a47-a4f0-d9690dd16ad1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Mongolian Baiti" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONTROL ACADEMICO KINAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="30" width="150" height="20" uuid="cd77c6a8-427d-472f-9d5c-f29f39124f81"/>
+				<text><![CDATA[9 calle 31-15, Zona 9, Guatemala]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="245" y="50" width="100" height="20" uuid="8752883b-09a0-4294-ba6a-9cd139a9f1d2"/>
+				<text><![CDATA[Telefono: 88974572]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="258" y="70" width="74" height="20" uuid="4527450c-41f7-487d-94fa-4f1d1ece7cde"/>
+				<text><![CDATA[NIT: 365478-9]]></text>
+			</staticText>
+			<image>
+				<reportElement x="450" y="4" width="127" height="133" uuid="f4a0cad9-3c25-47d5-8cbd-fec2007e07df"/>
+				<imageExpression><![CDATA[$P{SALUDO}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement x="204" y="5" width="206" height="30" uuid="6187230a-97aa-4d70-85eb-71d432df88a5"/>
+				<textElement>
+					<font fontName="SansSerif" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE HORARIOS]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="41" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="40" width="561" height="1" uuid="9ad53aa2-59cd-4925-b342-cdcca6112bea">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="5.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="7" width="45" height="24" uuid="0ac5d61e-f4da-48f9-a06f-a03aabcc1d51">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7a636b24-6d13-494e-8bea-06a3db96b5af"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="7" width="90" height="24" uuid="df34e04d-7333-4d47-a940-9ad1bd2980e6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="78b3907b-960f-44ee-b337-bc72bd9aba99"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Horario inicio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="150" y="7" width="94" height="25" uuid="55df953c-341f-4de2-a05f-ead9bb599c94">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="083d1115-1570-4c38-8208-10e40345fea8"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Horario final]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="9" width="60" height="22" uuid="c8963137-e369-420c-b220-5152ae61efcc">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f141f3c0-fa82-46e2-915a-96063c4ff055"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Lunes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="320" y="8" width="50" height="22" uuid="d68e243a-e9be-450c-aa6a-ba9f25805b48">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="45f2d712-9426-47f5-b5af-dca2b178025d"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Martes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="9" width="60" height="21" uuid="1b9995b8-6eb0-4893-9b57-911878dfaa3a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="21dc76ff-58ff-4167-99bf-a48a01376962"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Miercoles]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="450" y="9" width="50" height="21" uuid="ba2818d3-465a-404a-8bc9-cadbed9e684c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d1f83974-91a3-462f-bf12-39025e65d13f"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Jueves]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="510" y="9" width="52" height="21" uuid="8d40527b-a963-42f9-95c8-ba611bbdc1ef">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fabf93f2-3809-40d6-b25b-cfc9e36bd5ea"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Viernes]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="54" splitType="Stretch">
+			<rectangle radius="15">
+				<reportElement x="0" y="10" width="562" height="29" forecolor="#F2B016" uuid="3466b1ea-4a52-4ef8-901b-e9f5693ade0e"/>
+			</rectangle>
+			<textField>
+				<reportElement x="0" y="14" width="45" height="20" uuid="d32f308a-9ae9-4e20-857c-d205fe0d0cba">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7a636b24-6d13-494e-8bea-06a3db96b5af"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="14" width="90" height="18" uuid="16666723-de68-4e0d-9b58-221ad8fdee26">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="78b3907b-960f-44ee-b337-bc72bd9aba99"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{horario_inicio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="14" width="94" height="18" uuid="ffe2aa31-bd13-4b15-b8eb-7df383a2f527">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="083d1115-1570-4c38-8208-10e40345fea8"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{horario_final}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="250" y="14" width="60" height="18" uuid="834e7700-e293-4997-bb2a-faa6fdb1804f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f141f3c0-fa82-46e2-915a-96063c4ff055"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{lunes}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="320" y="13" width="50" height="20" uuid="23e641f0-9932-4935-a97d-41eeb0ecd517">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="45f2d712-9426-47f5-b5af-dca2b178025d"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{martes}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="15" width="60" height="18" uuid="eae283c2-16a4-4164-8ce0-d38534135068">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="21dc76ff-58ff-4167-99bf-a48a01376962"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{miercoles}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="14" width="50" height="19" uuid="212d89fe-f2f1-47d4-93c6-badca8732c94">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d1f83974-91a3-462f-bf12-39025e65d13f"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{jueves}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="510" y="15" width="52" height="17" uuid="0bad0c41-388e-4145-a268-7986157fa548">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fabf93f2-3809-40d6-b25b-cfc9e36bd5ea"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{viernes}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="92" splitType="Stretch">
+			<staticText>
+				<reportElement x="196" y="0" width="180" height="30" uuid="a2c3d2ff-4538-4fa2-97a9-3f9cd8110404"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Juan Jose Rivas Alvarez]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="193" y="32" width="203" height="20" uuid="f4568f05-5e34-49fa-9425-c3c6c436271e"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[ jrivas-2020573@kinal.edu.gt]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="52" width="100" height="30" uuid="045a5d0a-68f3-4087-b428-1678c4d3e6b2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[IN5BV]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="0" width="561" height="1" uuid="0bd9456e-0990-4eb6-a8d8-0cb542ad0327">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="5.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="62" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="1" width="211" height="60" uuid="1983be9f-93c7-419b-b8d3-d1022fdcdd91"/>
+				<imageExpression><![CDATA[$P{LOGO_FOOTER}]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+</jasperReport>

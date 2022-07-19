@@ -37,14 +37,19 @@ import javafx.stage.Stage;
 import java.time.LocalDateTime;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import org.in5bv.juanrivas.db.Conexion;
 import org.in5bv.juanrivas.models.Alumnos;
 import org.in5bv.juanrivas.models.Cursos;
 import org.in5bv.juanrivas.models.AsignacionesAlumnos;
+import org.in5bv.juanrivas.reports.GenerarReporte;
 import org.in5bv.juanrivas.system.Principal;
 
 public class AsignacionesAlumnosController implements Initializable{
     
+    @FXML
+    private TextField txtRegistros;
     
     @FXML
     private Button btnNuevo;
@@ -130,6 +135,8 @@ public class AsignacionesAlumnosController implements Initializable{
         cargarDatos();
     }
     
+    
+    
     private void deshabilitarCampos(){
         txtId.setEditable(false);
         cmbCurso.setEditable(false);
@@ -160,6 +167,7 @@ public class AsignacionesAlumnosController implements Initializable{
         dpkFechaAsignacion.getEditor().clear();
     }
     
+    
     public ObservableList getAlumnos(){
         ArrayList<Alumnos> arrayListAlumnos = new ArrayList<>();
         PreparedStatement pstmt = null;
@@ -181,6 +189,7 @@ public class AsignacionesAlumnosController implements Initializable{
                 
                 System.out.println(alumno.toString());
                 arrayListAlumnos.add(alumno);
+                
             }
             
             listaObservableAlumnos = FXCollections.observableArrayList(arrayListAlumnos);
@@ -208,6 +217,8 @@ public class AsignacionesAlumnosController implements Initializable{
         return listaObservableAlumnos;
     }
     
+    int contador = 0;
+    
     public ObservableList getAsignacionesAlumnos() {
         ArrayList<AsignacionesAlumnos> arrayListAsignaciones = new ArrayList<>();
         PreparedStatement pstmt = null;
@@ -229,7 +240,13 @@ public class AsignacionesAlumnosController implements Initializable{
                 System.out.println(asignacion);
                 
                 arrayListAsignaciones.add(asignacion);
+                
+                for (int i = 0; i <= arrayListAsignaciones.size() ; i++){
+                    contador = 1 + i;
+                }
             }
+            txtRegistros.setText(String.valueOf(contador - 1));
+            
             listaObservableAsignaciones = FXCollections.observableArrayList(arrayListAsignaciones);
             
         } catch (SQLException e) {
@@ -453,7 +470,7 @@ public class AsignacionesAlumnosController implements Initializable{
 
         try {
             pstmt = Conexion.getInstance().getConexion().prepareCall("{CALL sp_asignaciones_alumnos_create(?, ?, ?)}");
-
+            //pstmt.setInt(1,  asignacion.getId());
             pstmt.setString(1, asignacion.getAlumnoId());
             pstmt.setInt(2, asignacion.getCursoId());
             pstmt.setTimestamp(3, Timestamp.valueOf(asignacion.getFechaAsignacion()));
@@ -750,14 +767,10 @@ public class AsignacionesAlumnosController implements Initializable{
     
     @FXML
     private void clicReporte(ActionEvent event){
-        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-        alerta.setTitle("AVISO!!");
-        alerta.setHeaderText(null);
-        alerta.setContentText("Esta funcionalidad solo esta disponible en la versión PRO");
-        
-        Stage stageAlert = (Stage) alerta.getDialogPane().getScene().getWindow();
-        stageAlert.getIcons().add(new Image(PAQUETE_IMAGE + "logo-control-academico1.png"));
-        alerta.show();
+        Map<String, Object> parametros = new HashMap<>();
+        parametros.put("SALUDO", PAQUETE_IMAGE + "Asignacion.png");
+        GenerarReporte.getInstance().mostrarReporte("ReporteAsignacionesAlumnos.jasper", 
+                parametros, "Reporte de Asignaciones Alumnos");
     }
     
         

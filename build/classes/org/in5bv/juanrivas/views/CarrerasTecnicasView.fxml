@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="588.0" prefWidth="1280.0" stylesheets="@../resources/ccs/EstiloModulos.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.in5bv.juanrivas.tolchavalan.controllers.CarrerasTecnicasController">
+<AnchorPane id="AnchorPane" prefHeight="588.0" prefWidth="1280.0" stylesheets="@../resources/ccs/EstiloModulos.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.in5bv.juanrivas.tolchavalan.controllers.CarrerasTecnicasController">
    <children>
       <Pane cache="true" layoutX="1139.0" layoutY="-71.0" prefHeight="255.0" prefWidth="85.0" styleClass="adornos-bg" />
       <BorderPane prefHeight="593.0" prefWidth="1013.0">
@@ -137,12 +137,12 @@
                     </rowConstraints>
                      <children>
                         <Label text="Codigo Técnico:" />
-                        <Label text="Grado: " GridPane.rowIndex="4" />
+                        <Label text="Carrera:" GridPane.rowIndex="4" />
                         <Label text="Sección: " GridPane.rowIndex="6" />
                         <Label text="Jornada: " GridPane.rowIndex="8" />
-                        <Label text="Carrera:" GridPane.rowIndex="2" />
-                        <TextField fx:id="txtCarrera" disable="true" editable="false" prefHeight="25.0" prefWidth="119.0" GridPane.rowIndex="3" />
-                        <TextField fx:id="txtGrado" disable="true" editable="false" GridPane.rowIndex="5" />
+                        <Label text="Grado:" GridPane.rowIndex="2" />
+                        <TextField fx:id="txtGrado" disable="true" editable="false" prefHeight="25.0" prefWidth="119.0" GridPane.rowIndex="3" />
+                        <TextField fx:id="txtCarrera" disable="true" editable="false" GridPane.rowIndex="5" />
                         <TextField fx:id="txtSeccion" disable="true" editable="false" GridPane.rowIndex="7" />
                         <TextField fx:id="txtJornada" disable="true" editable="false" GridPane.rowIndex="9" />
                         <TextField fx:id="txtTecnico" disable="true" GridPane.rowIndex="1" />
@@ -151,8 +151,8 @@
                   <TableView fx:id="tblCarrerasTecnicas" layoutX="276.0" layoutY="126.0" onMouseClicked="#seleccionarElemento" prefHeight="393.0" prefWidth="742.0">
                     <columns>
                       <TableColumn fx:id="colCodigoTecnico" prefWidth="129.0" text="Codigo Técnico" />
-                      <TableColumn fx:id="colCarrera" prefWidth="167.0" text="Grado" />
-                        <TableColumn fx:id="colGrado" minWidth="1.0" prefWidth="150.0" text="Carrera" />
+                      <TableColumn fx:id="colGrado" prefWidth="167.0" text="Grado" />
+                        <TableColumn fx:id="colCarrera" minWidth="1.0" prefWidth="150.0" text="Carrera" />
                         <TableColumn fx:id="colSeccion" prefWidth="164.0" text="Sección" />
                         <TableColumn fx:id="colJornada" prefWidth="131.0" text="Jornada" />
                     </columns>
@@ -165,5 +165,7 @@
             <Image url="@../resources/images/btnRegresar.png" />
          </image>
       </ImageView>
+      <Label layoutX="1029.0" layoutY="547.0" text="Registros :" />
+      <TextField fx:id="txtRegistros" editable="false" layoutX="1094.0" layoutY="543.0" prefHeight="25.0" prefWidth="97.0" />
    </children>
 </AnchorPane>

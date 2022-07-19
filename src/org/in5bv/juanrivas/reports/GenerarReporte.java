@@ -22,6 +22,8 @@ public class GenerarReporte {
     
     private static GenerarReporte instance;
     
+    private final String PAQUETE_IMAGES = "org/in5bv/juanrivas/resources/images/";
+    
     private JasperViewer jasperViewer;
     
     private GenerarReporte(){
@@ -38,6 +40,10 @@ public class GenerarReporte {
     
     public void mostrarReporte(String nombreReporte, Map<String, Object> parametros, String titulo){
         try {
+            
+            parametros.put("LOGO_HEADER", PAQUETE_IMAGES + "logo-control-academico1.png");
+            parametros.put("LOGO_FOOTER", PAQUETE_IMAGES + "logokinal.png");
+            
             URL urlFile = new URL(getClass().getResource(nombreReporte).toString());
             
             JasperReport jasperReport = (JasperReport)JRLoader.loadObject(urlFile);

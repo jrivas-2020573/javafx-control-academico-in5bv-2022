@@ -20,7 +20,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1280.0" stylesheets="@../resources/ccs/EstiloModulos.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.in5bv.juanrivas.tolchavalan.controllers.HorariosController">
    <children>
-      <TableView fx:id="tblHorarios" layoutX="319.0" layoutY="195.0" onKeyReleased="#seleccionarElemento" onMouseClicked="#seleccionarElemento" prefHeight="354.0" prefWidth="764.0">
+      <TableView fx:id="tblHorarios" layoutX="319.0" layoutY="195.0" onKeyReleased="#seleccionarElemento" onMouseClicked="#seleccionarElemento" prefHeight="295.0" prefWidth="764.0">
         <columns>
           <TableColumn fx:id="colID" prefWidth="75.0" text="ID" />
           <TableColumn fx:id="colHorarioEntrada" prefWidth="115.0" text="Horario Ingreso" />
@@ -189,5 +189,7 @@
             <Image url="@../resources/images/btnRegresar.png" />
          </image>
       </ImageView>
+      <Label layoutX="247.0" layoutY="533.0" text="Registros: " />
+      <TextField fx:id="txtRegistros" editable="false" layoutX="302.0" layoutY="529.0" prefHeight="25.0" prefWidth="65.0" />
    </children>
 </AnchorPane>

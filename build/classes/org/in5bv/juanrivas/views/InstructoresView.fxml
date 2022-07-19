@@ -19,8 +19,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="fechaNacimi" prefHeight="586.0" prefWidth="1431.0" stylesheets="@../resources/ccs/EstiloModulos.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.in5bv.juanrivas.tolchavalan.controllers.InstructoresController">
+<AnchorPane id="AnchorPane" fx:id="fechaNacimi" prefHeight="586.0" prefWidth="1431.0" stylesheets="@../resources/ccs/EstiloModulos.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.in5bv.juanrivas.tolchavalan.controllers.InstructoresController">
    <children>
+      <Pane layoutX="1074.0" layoutY="455.0" prefHeight="131.0" prefWidth="85.0" rotate="180.0" styleClass="adornos-bg" />
       <BorderPane prefHeight="586.0" prefWidth="1013.0">
          <left>
             <Pane id="panel-navegacion" prefHeight="606.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -121,12 +122,11 @@
             </Pane>
          </left>
          <center>
-            <Pane prefHeight="586.0" prefWidth="906.0" BorderPane.alignment="CENTER">
+            <Pane prefHeight="586.0" prefWidth="152.0" BorderPane.alignment="CENTER">
                <children>
-                  <Pane layoutX="130.0" layoutY="396.0" prefHeight="190.0" prefWidth="85.0" styleClass="decoracion2" />
-                  <Pane layoutX="485.0" layoutY="462.0" prefHeight="124.0" prefWidth="85.0" styleClass="decoracion2" />
-                  <Pane layoutX="14.0" layoutY="-6.0" prefHeight="298.0" prefWidth="85.0" styleClass="decoracion" />
-                  <Pane layoutX="1145.0" prefHeight="255.0" prefWidth="85.0" styleClass="decoracion">
+                  <Pane layoutX="130.0" layoutY="396.0" prefHeight="190.0" prefWidth="85.0" rotate="180.0" styleClass="adornos-bg" />
+                  <Pane layoutX="14.0" layoutY="-6.0" prefHeight="298.0" prefWidth="85.0" styleClass="adornos-bg" />
+                  <Pane layoutX="1145.0" prefHeight="149.0" prefWidth="85.0" styleClass="adornos-bg">
                      <children>
                         <ImageView fitHeight="95.0" fitWidth="69.0" layoutX="6.0" layoutY="26.0" onMouseClicked="#clicRegresar" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -184,7 +184,7 @@
                         <DatePicker fx:id="dpkFechaNacimiento" disable="true" GridPane.rowIndex="19" />
                      </children>
                   </GridPane>
-                  <TableView fx:id="tblInstructores" layoutX="205.0" layoutY="161.0" onKeyReleased="#seleccionarElemento" onMouseClicked="#seleccionarElemento" prefHeight="402.0" prefWidth="1013.0">
+                  <TableView fx:id="tblInstructores" layoutX="205.0" layoutY="161.0" onKeyReleased="#seleccionarElemento" onMouseClicked="#seleccionarElemento" prefHeight="324.0" prefWidth="1013.0">
                     <columns>
                       <TableColumn fx:id="colId" prefWidth="44.0" text="Id" />
                       <TableColumn fx:id="colNombre1" prefWidth="77.0" text="Nombre 1" />
@@ -198,6 +198,8 @@
                         <TableColumn fx:id="colFechaNt" prefWidth="169.0" text="Fecha nacimiento" />
                     </columns>
                   </TableView>
+                  <Label layoutX="238.0" layoutY="135.0" text="Registros:" />
+                  <TextField fx:id="txtRegistros" editable="false" layoutX="303.0" layoutY="131.0" prefHeight="25.0" prefWidth="75.0" />
                </children>
             </Pane>
          </center>

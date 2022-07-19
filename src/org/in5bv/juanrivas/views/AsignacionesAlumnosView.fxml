@@ -22,7 +22,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="586.0" prefWidth="1306.0" stylesheets="@../resources/ccs/EstiloModulos.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.in5bv.juanrivas.tolchavalan.controllers.AsignacionesAlumnosController">
    <children>
-      <Pane layoutX="1207.0" layoutY="-9.0" prefHeight="255.0" prefWidth="85.0" styleClass="adornos-bg" />
+      <Pane layoutX="1066.0" prefHeight="255.0" prefWidth="85.0" styleClass="adornos-bg" />
       <BorderPane prefHeight="586.0" prefWidth="1013.0">
          <left>
             <Pane id="panel-navegacion" prefHeight="606.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -178,11 +178,12 @@
             </Pane>
          </center>
       </BorderPane>
-      <Pane layoutX="1080.0" layoutY="462.0" prefHeight="124.0" prefWidth="85.0" rotate="180.0" styleClass="adornos-bg" />
-      <ImageView fx:id="imgRegresar" fitHeight="95.0" fitWidth="69.0" layoutX="1222.0" layoutY="498.0" onMouseClicked="#clicRegresar" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgRegresar" fitHeight="95.0" fitWidth="69.0" layoutX="1212.0" layoutY="24.0" onMouseClicked="#clicRegresar" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/images/btnRegresar.png" />
          </image>
       </ImageView>
+      <Label layoutX="1037.0" layoutY="532.0" text="Registros : " />
+      <TextField fx:id="txtRegistros" editable="false" layoutX="1096.0" layoutY="528.0" prefHeight="25.0" prefWidth="98.0" />
    </children>
 </AnchorPane>

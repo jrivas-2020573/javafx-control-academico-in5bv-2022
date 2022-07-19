@@ -14,6 +14,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.Set;
@@ -43,6 +45,7 @@ import org.in5bv.juanrivas.models.CarrerasTecnicas;
 import org.in5bv.juanrivas.models.Horarios;
 import org.in5bv.juanrivas.models.Cursos;
 import org.in5bv.juanrivas.db.Conexion;
+import org.in5bv.juanrivas.reports.GenerarReporte;
 
 import org.in5bv.juanrivas.system.Principal;
 
@@ -65,6 +68,9 @@ public class CursosController implements Initializable {
     private Principal escenarioPrincipal;
     
     //<>
+    @FXML
+    private TextField txtRegistros;
+    
     @FXML
     private TextField txtId;
     
@@ -231,6 +237,7 @@ public class CursosController implements Initializable {
     }
     
     // read → Listar todos los registros
+    int contador = 0;
     private ObservableList getCursos() {
         ArrayList<Cursos> arrayListCursos = new ArrayList<>();
         PreparedStatement pstmt = null;
@@ -257,7 +264,13 @@ public class CursosController implements Initializable {
                 System.out.println(curso.toString());
 
                 arrayListCursos.add(curso);
+                
+                for (int i = 0; i <= arrayListCursos.size() ; i++){
+                    contador = 1 + i;
+                }
+                
             }
+            txtRegistros.setText(String.valueOf(contador -1));
 
             listaObservableCursos = FXCollections.observableArrayList(arrayListCursos);
 
@@ -535,6 +548,7 @@ public class CursosController implements Initializable {
         
         Cursos curso = new Cursos();
         curso.setId(Integer.parseInt(txtId.getText()));
+        curso.setNombreCurso(txtNombreCurso.getText());
         curso.setCiclo(spnCiclo.getValue());
         curso.setCupoMaximo(spnCupoMaximo.getValue());
         curso.setCupoMinimo(spnCupoMinimo.getValue());
@@ -818,14 +832,9 @@ public class CursosController implements Initializable {
     
     @FXML
     private void clicReporte(){
-        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-        alerta.setTitle("AVISO!!");
-        alerta.setHeaderText(null);
-        alerta.setContentText("Esta funcionalidad solo esta disponible en la versión PRO");
-        
-        Stage stageAlert = (Stage) alerta.getDialogPane().getScene().getWindow();
-        stageAlert.getIcons().add(new Image(PAQUETE_IMAGE + "logo-control-academico1.png"));
-        alerta.show();
+        Map<String, Object> parametros = new HashMap<>();
+        parametros.put("SALUDO", PAQUETE_IMAGE + "Cursos.png");
+        GenerarReporte.getInstance().mostrarReporte("ReporteCursos.jasper", parametros, "Reporte de Cursos");
     }
     
     private Cursos buscarCurso(int id) {

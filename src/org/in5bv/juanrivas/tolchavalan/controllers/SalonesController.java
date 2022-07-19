@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -23,6 +25,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.in5bv.juanrivas.db.Conexion;
 import org.in5bv.juanrivas.models.Salones;
+import org.in5bv.juanrivas.reports.GenerarReporte;
 import org.in5bv.juanrivas.system.Principal;
 
 /**
@@ -44,7 +47,10 @@ public class SalonesController implements Initializable {
     private Principal escenarioPrincipal;
 
     private ObservableList<Salones> listaSalones;
-
+    
+    @FXML
+    private TextField txtRegistros;
+    
     @FXML
     private TextField txtCodigoSalon;
 
@@ -106,7 +112,8 @@ public class SalonesController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         cargarDatos();
     }
-
+    
+    int contador = 0;
     public ObservableList getSalones() {
         ArrayList<Salones> Lista = new ArrayList<>();
 
@@ -125,8 +132,13 @@ public class SalonesController implements Initializable {
                 System.out.println(salon.toString());
 
                 Lista.add(salon);
+                
+                for (int i = 0; i <= Lista.size() ; i++){
+                    contador = 1 + i;
+                }
+                
             }
-
+            txtRegistros.setText(String.valueOf(contador -1));
             listaSalones = FXCollections.observableArrayList(Lista);
 
         } catch (SQLException e) {
@@ -535,16 +547,9 @@ public class SalonesController implements Initializable {
 
     @FXML
     private void clicListar() {
-        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-        alerta.setTitle("AVISO");
-        //alerta.setHeaderText("Control Académico KINAL");
-        alerta.setHeaderText(null);
-        alerta.setContentText("Esta funcion solo esta disponible en la version Premium");
-
-        Stage stageAlert = (Stage) alerta.getDialogPane().getScene().getWindow();
-        stageAlert.getIcons().add(new Image("org/in5bv/juanrivas/resources/images/logo-control-academico1.png"));
-
-        alerta.show();
+        Map<String, Object> parametros = new HashMap<>();
+        parametros.put("SALUDO", PAQUETE_IMAGES + "salon-de-clases.png");
+        GenerarReporte.getInstance().mostrarReporte("ReporteSalones.jasper", parametros, "Reporte de Salones");
     }
 
     @FXML

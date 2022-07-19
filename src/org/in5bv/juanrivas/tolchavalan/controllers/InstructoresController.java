@@ -32,6 +32,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -42,6 +44,7 @@ import javafx.scene.image.ImageView;
 
 import org.in5bv.juanrivas.db.Conexion;
 import org.in5bv.juanrivas.models.Instructores;
+import org.in5bv.juanrivas.reports.GenerarReporte;
 import org.in5bv.juanrivas.system.Principal;
 
 public class InstructoresController implements Initializable{
@@ -57,6 +60,9 @@ public class InstructoresController implements Initializable{
     private ObservableList<Instructores> listaObservableInstructores;
 
     private Principal escenarioPrincipal;
+   
+    @FXML
+    private TextField txtRegistros;
     
     @FXML
     private TextField txtId;
@@ -215,7 +221,7 @@ public class InstructoresController implements Initializable{
         return false;
     }
     
-    
+    int contador = 0;
     public ObservableList getInstructores() {
         ArrayList<Instructores> lista = new ArrayList<>();
         PreparedStatement pstmt = null;
@@ -237,8 +243,15 @@ public class InstructoresController implements Initializable{
                 instructor.setFechaNacimiento(rs.getDate(10).toLocalDate());
                 lista.add(instructor);
                 System.out.println(instructor.toString());
+                
+                for (int i = 0; i <= lista.size() ; i++){
+                    contador = 1 + i;
+                }
+                
             }
+            txtRegistros.setText(String.valueOf(contador -1));
             listaObservableInstructores = FXCollections.observableArrayList(lista);
+            
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -594,16 +607,7 @@ public class InstructoresController implements Initializable{
                             listaObservableInstructores.remove(tblInstructores.getSelectionModel().getFocusedIndex());
                             limpiarCampos();
                             cargarDatos();
-                            /*
-                            Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-                            alerta.setTitle("Control academico");
-                            alerta.setHeaderText(null);
-                            alerta.setContentText("Registro eliminado exitosamente");
-
-                            Stage stage = (Stage) alerta.getDialogPane().getScene().getWindow();
-                            stage.getIcons().add(new Image(PAQUETE_IMAGE + "logo.JPG"));
-                            alerta.show();
-                            */
+                           
                         }                     
                     } else {
                         alert.close();
@@ -623,14 +627,10 @@ public class InstructoresController implements Initializable{
      
     @FXML
     private void clicReporte(){
-        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-        alerta.setTitle("AVISO!!");
-        alerta.setHeaderText(null);
-        alerta.setContentText("Esta funcionalidad solo esta disponible en la versión PRO");
-        
-        Stage stageAlert = (Stage) alerta.getDialogPane().getScene().getWindow();
-        stageAlert.getIcons().add(new Image(PAQUETE_IMAGE + "logo.JPG"));
-        alerta.show();
+        Map<String, Object> parametros = new HashMap<>();
+        parametros.put("SALUDO", PAQUETE_IMAGE + "Instructores.png");
+        GenerarReporte.getInstance().mostrarReporte("ReporteInstructores.jasper", 
+                parametros, "Reporte de Instructores");
     }
     
     @FXML

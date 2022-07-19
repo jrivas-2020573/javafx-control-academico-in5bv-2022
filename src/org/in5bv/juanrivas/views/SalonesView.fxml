@@ -112,7 +112,7 @@
             <AnchorPane prefHeight="622.0" prefWidth="1020.0" BorderPane.alignment="CENTER">
                <children>
                   <Pane layoutX="222.0" layoutY="459.0" prefHeight="189.0" prefWidth="102.0" rotate="180.0" styleClass="adornos-bg" />
-                  <Pane layoutX="762.0" layoutY="454.0" prefHeight="199.0" prefWidth="102.0" rotate="180.0" styleClass="adornos-bg" />
+                  <Pane layoutX="640.0" layoutY="454.0" prefHeight="199.0" prefWidth="102.0" rotate="180.0" styleClass="adornos-bg" />
                   <Pane layoutX="114.0" prefHeight="317.0" prefWidth="102.0" styleClass="adornos-bg" />
                   <GridPane layoutX="21.0" layoutY="127.0" prefHeight="450.0" prefWidth="172.0">
                     <columnConstraints>
@@ -152,6 +152,8 @@
                         <TableColumn fx:id="colNivel" prefWidth="121.0" text="Nivel" />
                     </columns>
                   </TableView>
+                  <Label layoutX="819.0" layoutY="597.0" prefHeight="17.0" prefWidth="60.0" text="Registros:" />
+                  <TextField fx:id="txtRegistros" editable="false" layoutX="888.0" layoutY="593.0" prefHeight="25.0" prefWidth="93.0" />
                </children>
             </AnchorPane>
          </center>

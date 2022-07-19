@@ -49,6 +49,9 @@ public class AlumnosController implements Initializable {
     private ObservableList<Alumnos> listaAlumnos;
 
     @FXML
+    private TextField txtRegistros;
+    
+    @FXML
     private TextField txtCarne;
 
     @FXML
@@ -115,6 +118,8 @@ public class AlumnosController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         cargarDatos();
     }
+    
+    int contador = 0;
 
     public ObservableList getAlumnos() {
 
@@ -137,8 +142,14 @@ public class AlumnosController implements Initializable {
                 System.out.println(alumno.toString());
 
                 Lista.add(alumno);
+                
+                for (int i = 0; i <= Lista.size() ; i++){
+                    contador = 1 + i;
+                }
             }
-
+            
+            txtRegistros.setText(String.valueOf(contador -1));
+            
             listaAlumnos = FXCollections.observableArrayList(Lista);
 
         } catch (SQLException e) {
@@ -165,6 +176,7 @@ public class AlumnosController implements Initializable {
         return listaAlumnos;
     }
 
+    
     public void cargarDatos() {
         tblAlumnos.setItems(getAlumnos());
         colCarne.setCellValueFactory(new PropertyValueFactory<Alumnos, String>("carne"));
@@ -190,6 +202,7 @@ public class AlumnosController implements Initializable {
                 System.out.println(pstmt.toString());
 
                 pstmt.execute();
+                
 
                 return true;
             } catch (SQLException e) {
@@ -568,8 +581,7 @@ public class AlumnosController implements Initializable {
     @FXML
     private void clicListar() {
         Map<String, Object> parametros = new HashMap<>();
-        parametros.put("nombre", "JuanJose");
-        
+        parametros.put("SALUDO", PAQUETE_IMAGES + "graduado (1).png");
         GenerarReporte.getInstance().mostrarReporte("ReporteAlumnos.jasper", parametros, "Reporte de Alumnos");
     }
 

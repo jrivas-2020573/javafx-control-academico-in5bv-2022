@@ -9,7 +9,7 @@
 
 <AnchorPane id="anchor-pane" prefHeight="600.0" prefWidth="1280.0" styleClass="anchor-pane" stylesheets="@../resources/ccs/EstiloMenuPrincipal.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.in5bv.juanrivas.tolchavalan.controllers.MenuPrincipalController">
    <children>
-      <MenuBar id="MenuBar" layoutX="26.0" layoutY="27.0" prefHeight="34.0" prefWidth="140.0" styleClass="MenuBar" stylesheets="@../resources/ccs/EstiloMenuPrincipal.css">
+      <MenuBar id="MenuBar" layoutX="26.0" layoutY="27.0" prefHeight="34.0" prefWidth="239.0" styleClass="MenuBar" stylesheets="@../resources/ccs/EstiloMenuPrincipal.css">
         <menus>
           <Menu mnemonicParsing="false" styleClass="MenuBar" text="Modulo">
             <items>
@@ -22,9 +22,24 @@
                   <MenuItem mnemonicParsing="false" onAction="#clicHorario" text="Horarios" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="¿?">
+            <Menu mnemonicParsing="false" styleClass="MenuBar" text="Reportes">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#clicReporteAlumnos" text="Alumnos" />
+                  <MenuItem mnemonicParsing="false" onAction="#clicReporteInstructores" text="Instructores" />
+                  <MenuItem mnemonicParsing="false" onAction="#clicReporteSalones" text="Salones" />
+                  <MenuItem mnemonicParsing="false" onAction="#clicReporteCarreras" text="Carreras Tecnicas" />
+                  <MenuItem mnemonicParsing="false" onAction="#clicReporteHorarios" text="Horarios" />
+                  <MenuItem mnemonicParsing="false" onAction="#clicReporteCursos" text="Cursos" />
+                  <MenuItem mnemonicParsing="false" onAction="#clicReporteCursosPorid" text="Curso por Id" />
+                  <MenuItem mnemonicParsing="false" onAction="#clicReporteAsignaciones" text="Asignaciones Alumnos" />
+                  <MenuItem mnemonicParsing="false" onAction="#clicReporteAsignacionesPorid" text="Asignacion por Id" />
+               </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Ayuda">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" onAction="#clicAcercaDe" text="Acerca de" />
+                  <MenuItem mnemonicParsing="false" onAction="#clicSalir" text="Salir " />
+                  <MenuItem mnemonicParsing="false" onAction="#clicLogoff" text="Cerrar Sesion" />
             </items>
           </Menu>
         </menus>

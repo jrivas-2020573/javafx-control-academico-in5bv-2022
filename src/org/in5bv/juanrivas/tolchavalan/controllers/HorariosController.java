@@ -22,11 +22,14 @@ import org.in5bv.juanrivas.models.Horarios;
 import org.in5bv.juanrivas.system.Principal;
 import com.jfoenix.controls.JFXTimePicker;
 import java.sql.Time;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import org.in5bv.juanrivas.reports.GenerarReporte;
 
 /**
  *
@@ -50,6 +53,9 @@ public class HorariosController implements Initializable{
     private ObservableList<Horarios> listaHorarios;
     
     private Principal escenarioPrincipal;
+    
+    @FXML
+    private TextField txtRegistros;
     
     @FXML
     private  TextField txtID;
@@ -133,6 +139,7 @@ public class HorariosController implements Initializable{
         cargarDatos();
     }
     
+    int contador = 0;
     public ObservableList getHorarios() {
         ArrayList<Horarios> Lista = new ArrayList<>();
         
@@ -155,9 +162,17 @@ public class HorariosController implements Initializable{
                 System.out.println(horario.toString());
                 
                 Lista.add(horario);
+                
+                for (int i = 0; i <= Lista.size() ; i++){
+                    contador = 1 + i;
+                }
+                
             }
             
+            txtRegistros.setText(String.valueOf(contador -1));
             listaHorarios = FXCollections.observableArrayList(Lista);
+            
+            
         } catch (SQLException e) {
             System.err.println("Se produjo un error al intentar listar la lista de horarios");
             System.err.println("Message: " + e.getMessage());
@@ -615,15 +630,9 @@ public class HorariosController implements Initializable{
     
     @FXML
     private void clicListar() {
-        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-        alerta.setTitle("AVISO");
-        alerta.setHeaderText(null);
-        alerta.setContentText("Esta funcion solo esta disponible en la version Premium");
-
-        Stage stageAlert = (Stage) alerta.getDialogPane().getScene().getWindow();
-        stageAlert.getIcons().add(new Image(PAQUETE_IMAGES + "logo-control-academico1.png"));
-
-        alerta.show();
+        Map<String, Object> parametros = new HashMap<>();
+        parametros.put("SALUDO", PAQUETE_IMAGES + "calendario.png");
+        GenerarReporte.getInstance().mostrarReporte("ReporteHorarios.jasper", parametros, "Reporte de Horarios");
     }
     
     @FXML

@@ -28,6 +28,8 @@ import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -37,6 +39,7 @@ import javafx.scene.image.ImageView;
 
 import org.in5bv.juanrivas.db.Conexion;
 import org.in5bv.juanrivas.models.CarrerasTecnicas;
+import org.in5bv.juanrivas.reports.GenerarReporte;
 import org.in5bv.juanrivas.system.Principal;
 
 public class CarrerasTecnicasController implements Initializable {
@@ -52,6 +55,9 @@ public class CarrerasTecnicasController implements Initializable {
     private ObservableList<CarrerasTecnicas> listaCarrerasTecnicas;
     
     private Principal escenarioPrincipal;
+    
+    @FXML
+    private TextField txtRegistros;
     
     @FXML
     private TextField txtTecnico;
@@ -171,7 +177,9 @@ public class CarrerasTecnicasController implements Initializable {
         }
         return false;
     }
-            
+          
+    int contador = 0;
+    
     public ObservableList getCarrerasTecnicas(){
         
         ArrayList<CarrerasTecnicas> lista = new ArrayList<>();
@@ -184,14 +192,18 @@ public class CarrerasTecnicasController implements Initializable {
             while(rs.next()){               
                CarrerasTecnicas carrerastecnicas = new CarrerasTecnicas();
                carrerastecnicas.setCodigoTecnico(rs.getString(1));
-               carrerastecnicas.setCarrera(rs.getString(2));
-               carrerastecnicas.setGrado(rs.getString(3));                           
+               carrerastecnicas.setGrado(rs.getString(2)); 
+               carrerastecnicas.setCarrera(rs.getString(3));                   
                carrerastecnicas.setSeccion(rs.getString(4).charAt(0));
                carrerastecnicas.setJornada(rs.getString(5));
                lista.add(carrerastecnicas);
                System.out.println(carrerastecnicas.toString());
+               
+               for (int i = 0; i <= lista.size() ; i++){
+                    contador = 1 + i;
+                }
             }    
-            
+            txtRegistros.setText(String.valueOf(contador -1));
             listaCarrerasTecnicas = FXCollections.observableArrayList(lista);
                 
         } catch (SQLException e){
@@ -330,8 +342,8 @@ public class CarrerasTecnicasController implements Initializable {
             pstmt = Conexion.getInstance().getConexion().prepareCall("CALL sp_carreras_tecnicas_create(?, ?, ?, ?, ?)");
 
             pstmt.setString(1, carrerastecnicas.getCodigoTecnico());
-            pstmt.setString(2, carrerastecnicas.getCarrera());  
-            pstmt.setString(3, carrerastecnicas.getGrado());                     
+            pstmt.setString(2, carrerastecnicas.getGrado());
+            pstmt.setString(3, carrerastecnicas.getCarrera());                           
             pstmt.setString(4, String.valueOf(carrerastecnicas.getSeccion()));
             pstmt.setString(5, carrerastecnicas.getJornada());
             
@@ -551,14 +563,9 @@ public class CarrerasTecnicasController implements Initializable {
     
     @FXML
     private void clicListar(){
-        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-        alerta.setTitle("AVISO!!");
-        alerta.setHeaderText(null);
-        alerta.setContentText("Esta funcionalidad solo esta disponible en la versión PRO");
-        
-        Stage stageAlert = (Stage) alerta.getDialogPane().getScene().getWindow();
-        stageAlert.getIcons().add(new Image(PAQUETE_IMAGE + "logo-control-academico1.png"));
-        alerta.show();
+        Map<String, Object> parametros = new HashMap<>();
+        parametros.put("SALUDO", PAQUETE_IMAGE + "CarrerasT.png");
+        GenerarReporte.getInstance().mostrarReporte("ReporteCarreras.jasper", parametros, "Reporte de Carreras");
     }
     
     @FXML
